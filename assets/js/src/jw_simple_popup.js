@@ -7,7 +7,7 @@
  */
 
 /*jslint browser: true */
-/*global jQuery:false jwsp:true console:true */
+/*global jQuery:false jwsp:true */
 
 window.Jw_Simple_Popup = (function(window, document, $, undefined){
 	'use strict';
@@ -72,7 +72,6 @@ window.Jw_Simple_Popup = (function(window, document, $, undefined){
 			w_height = window.innerHeight;
 
 		if ( 0 === height ){
-            console.log( 'height was not set ' );
 			app.$overlay.css( { 'position': 'absolute', 'visibility':'hidden', 'display':'block' } );
 			height = app.$dialog.outerHeight( true );
 			app.$overlay.removeAttr('style');
