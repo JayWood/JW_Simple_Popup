@@ -10,9 +10,14 @@ A simple popup plugin with shortcodes and template tags.
 
 == Description ==
 
-
+A super simple popup plugin which allows site owners to provide a popup to users.  Also provides customization options via a CSS field, color picker, and a few other nifty gadgets.
 
 == Installation ==
+
+This plugin requires two plugins to work properly ( one is included )
+
+* [CMB2](https://github.com/WebDevStudios/CMB2) - included
+* [CMB2 - RGBa Colorpicker](https://github.com/JayWood/CMB2_RGBa_Picker)
 
 = Manual Installation =
 
