@@ -61,7 +61,6 @@ window.Jw_Simple_Popup = (function(window, document, $, undefined){
 	};
 
 	app.open = function(){
-        console.log( app.cookie );
         if( ! app.cookie ){
             $( 'body' ).addClass( 'stop-scrolling' );
             app.$overlay.fadeIn( 200 );
@@ -70,29 +69,36 @@ window.Jw_Simple_Popup = (function(window, document, $, undefined){
 
 	app.center_and_resize = function( animate ){
 		var height = app.$dialog.height(),
-			w_height = window.innerHeight,
-			new_top = ( w_height - height ) / 2;
+			w_height = window.innerHeight;
 
 		if ( 0 === height ){
+            console.log( 'height was not set ' );
 			app.$overlay.css( { 'position': 'absolute', 'visibility':'hidden', 'display':'block' } );
 			height = app.$dialog.outerHeight( true );
 			app.$overlay.removeAttr('style');
 		}
-		
+
+        var new_top = ( w_height - height ) / 2;
+
+        // @TODO: Allow the user to set an option to limit the height of the dialog
+        // if the dialog if larger than the height of the window.
 		if ( animate ){
+
 			app.$dialog.animate( { 'top': new_top }, 500 );
-			return;
-		}
 
-		// Sets the height of the dialog to the height of the 
-		// window ( less 60 pixels )
-		// app.$dialog.css( { 'height': w_height - 60 } );
+        } else {
 
-		if ( w_height < height ){
-			app.$dialog.css( { 'top': 30 } );
-		} else {
-			app.$dialog.css( {'top': new_top } );
-		}
+            // Sets the height of the dialog to the height of the
+            // window ( less 60 pixels )
+            // app.$dialog.css( { 'height': w_height - 60 } );
+
+            if ( w_height < height ){
+                app.$dialog.css( { 'top': 30 } );
+            } else {
+                app.$dialog.css( {'top': new_top } );
+            }
+
+        }
 
 		// app.$dialog.css( { 'height': w_height - 60 } );
 	};
